@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess Qualification calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Կարգերի հաշվիչ</h1>
+        <label for="class">Մասնակցի կարգը 0,4,3,2</label>
+        <input type="number" name="class" id="class" required min="0" max="4">
+        <label for="tour">Անցկացված տուռերի քանակը</label>
+        <input type="number" name="tour" id="tour" required min="8" max="11">
+        <label for="point">Մասնակցի հավաքած միավորները</label>
+        <input type="number" name="point" id="point" required min="0" max="11">
+        <label for="score">Մրցակիցների կարգերի գումարը</label>
+        <input type="number" name="score" id="score" required min="8" max="55">
+        <input type="button" id="submit" value="Հաշվել">
+        <script src="./script.js"></script>
+    </div>    
+</body>
+</html>

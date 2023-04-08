@@ -1,0 +1,28 @@
+*{
+ margin: 0px;   
+}
+
+body{
+    background-image: url("./2d6891e6-dfd0-4d1a-8819-f153929584d9-the-lightwriter2.jpg");
+    display: flex;
+   
+}
+
+h1{
+    margin: 20px;
+}
+
+.calculator{ 
+    /* background: #f8f1f1; */
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.calculator input{
+    margin: 10px
+}
