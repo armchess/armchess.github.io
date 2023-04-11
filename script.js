@@ -770,22 +770,22 @@ function validation(){
         return
     }
     if(+tour.value < 8 || +tour.value > 11){
-        alert("Անվավեր տուռերի քանակ։")
+        alert("Անվավեր տուրերի քանակ։")
         tour.value = ""
         return
     }
-    if(+clas.value < 0 || +clas.value > 4){
+    if(+clas.value < 0 || +clas.value > 4 || +clas.value === 1){
         alert("Անվավեր կարգ։")
         clas.value = ""
         return
     }
     if(+score.value < 8 || +score.value > 55){
-        alert("Անվավեր մրցակիցների կարգերի գումար")
+        alert("Մրցակիցների կարգերի գումարը անվավեր է")
         clas.value = ""
         return
     }
     if(+point.value > +tour.value){
-        alert("Միավորները չեն կարող ավել լինել տուռերի քանակից:")
+        alert("Միավորը չի կարող ավել լինել տուրերի քանակից:")
         point.value = ""
         return
     }
@@ -802,16 +802,18 @@ function calculator (){
     }
     for(let i = 0; i < clasVal - 1; i++){
         let el = qual[i]
-        for(let item of el["tour"+tour.value]) {
-            if(+score.value >= item?.start && +score.value <= item?.end && +point.value >= item.yourPoint){
-                alert(`Դուք լրացրել եք ${el.doneClas}-րդ կարգ`)
-                q = 0
-                score.value = ""
-                return
+        if(el["tour"+tour.value]){
+            for(let item of el["tour"+tour.value]) {
+                if(+score.value >= item?.start && +score.value <= item?.end && +point.value >= item.yourPoint){
+                    alert(`Դուք լրացրել եք ${el.doneClas}-րդ կարգ`)
+                    q = 0
+                    score.value = ""
+                    return
+                }
             }
         }
     }
-    alert("Ձեր միավորները չեն բավարարում կարգ լրացնելու համար")
+    alert("Ձեր միավորը չի բավարարում կարգ լրացնելու համար")
     q = 0
     score.value = ""
 }
