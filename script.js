@@ -805,7 +805,7 @@ function calculator (){
         if(el["tour"+tour.value]){
             for(let item of el["tour"+tour.value]) {
                 if(+score.value >= item?.start && +score.value <= item?.end && +point.value >= item.yourPoint){
-                    alert(`Դուք լրացրել եք ${el.doneClas}-րդ կարգ`)
+                    alert(`Դուք լրացրել եք ${el.doneClas}-${el.doneClas === 1 ? "ին" : "րդ"} կարգ`)
                     q = 0
                     score.value = ""
                     return
