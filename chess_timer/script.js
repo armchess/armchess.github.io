@@ -23,7 +23,7 @@ setInterval(()=>{
 
 function countdown(minMilObj){
   if(minMilObj.minute === "00" && minMilObj.milisecond === "00"){
-    timer.innerText = "Time End"
+    timer.innerText = "TIME END"
     return true;
   }
   if(minMilObj.milisecond === "00"){
