@@ -64,12 +64,13 @@ startButton.addEventListener("click", () => {
 })
 
 settingsIcon.addEventListener("click", () => {
-  const timerTime = prompt("խնդրում ենք մուտքագրել ուշացման ժամանակը (10-60 րոպե)");
+  const timerTime = prompt("մուտքագրել ուշացման ժամանակը (0-60 րոպե)");
   if(timerTime){
-    if(timerTime >= 10 && timerTime <= 60){
+    if(timerTime >= 0 && timerTime <= 60){
       timer.innerText = `${Math.floor(timerTime)}:00`;
+      timerInActive = false;
     } else {
-      alert("ծնդրում ենք մուտքագրել 10-60 ընկած հատվածում թիվ");
+      alert("մուտքագրել 0-60 ընկած հատվածում թիվ");
     }
   }
 })
