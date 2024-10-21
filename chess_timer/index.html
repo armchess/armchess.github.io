@@ -6,7 +6,7 @@
       <title>Chess Time</title>
       <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body style="display: none;">
     <div class="header">
       <h3 id="h3_1"></h3>
       <div style="display: flex;">
@@ -20,7 +20,10 @@
     <div class="line" class="containers"></div>
     <div class="real_time"><h1 id="real_time"></h1></div>
     <div class="containers timer">
-      <b style="font-size: 35px;">Խաղից ուշանալու թույլատրելի ժամանակ</b>
+      <div>
+        <b style="font-size: 35px;">Խաղից ուշանալու թույլատրելի ժամանակ</b>
+        <img id="settings_icon" title="settings" class="settingImage" src="./Windows_Settings_icon.svg.png" alt="ArmChessInfo" width="20px" >
+      </div>
       <h2>30:00</h2>
       <button id="start_button">Start Timer</button>
     </div>

@@ -3,9 +3,24 @@ const timeTag2 = document.getElementById("h3_2");
 const realTimeTag = document.getElementById("real_time");
 const timer = document.getElementsByTagName("h2")[0];
 const startButton = document.getElementById("start_button");
+const settingsIcon = document.getElementById("settings_icon");
+const body = document.getElementsByTagName("body")[0];
 let timerInActive = false;
-let [minute, milisecond] = timer.innerText.split(":")
-const minMilObj = { minute, milisecond };
+const minMilObj = {};
+let bodyPass = "";
+let myPass = /muradyan/
+
+body.addEventListener("keydown", (e) => {
+  if (bodyPass.length > 100) {
+    bodyPass = "";
+  }
+  if(e.key === "Enter"){
+    if(myPass.test(bodyPass)) {
+      body.style.display = "block"
+    }
+  }
+  bodyPass += e.key;
+})
 
 setInterval(()=>{
   let date = new Date();
@@ -22,6 +37,8 @@ setInterval(()=>{
 }, 1000)
 
 function countdown(minMilObj){
+  let [minute, milisecond] = timer.innerText.split(":");
+  minMilObj = { minute, milisecond };
   if(minMilObj.minute === "00" && minMilObj.milisecond === "00"){
     timer.innerText = "TIME END"
     return true;
@@ -44,4 +61,15 @@ startButton.addEventListener("click", () => {
   }
   startButton.innerText = "Button inactive"
   timerInActive = true;
+})
+
+settingsIcon.addEventListener("click", () => {
+  const timerTime = prompt("խնդրում ենք մուտքագրել ուշացման ժամանակը (10-60 րոպե)");
+  if(timerTime){
+    if(timerTime >= 10 && timerTime <= 60){
+      timer.innerText = `${Math.floor(timerTime)}:00`;
+    } else {
+      alert("ծնդրում ենք մուտքագրել 10-60 ընկած հատվածում թիվ");
+    }
+  }
 })
