@@ -8,14 +8,14 @@ const body = document.getElementsByTagName("body")[0];
 let timerInActive = false;
 const minMilObj = {};
 let bodyPass = "";
-let myPass = /muradyan/
+let l = /muradyan/
 
 body.addEventListener("keydown", (e) => {
   if (bodyPass.length > 100) {
     bodyPass = "";
   }
   if(e.key === "Enter"){
-    if(myPass.test(bodyPass)) {
+    if(l.test(bodyPass)) {
       body.style.display = "block"
     }
   }
@@ -62,15 +62,17 @@ startButton.addEventListener("click", () => {
   startButton.innerText = "Button inactive"
   timerInActive = true;
 })
-
-settingsIcon.addEventListener("click", () => {
-  const timerTime = prompt("մուտքագրել ուշացման ժամանակը (0-60 րոպե)");
+function updateTimer() {
+  let timerTime = prompt("մուտքագրել ուշացման ժամանակը (1-60 րոպե)");
   if(timerTime){
-    if(timerTime >= 0 && timerTime <= 60){
+    if(timerTime >= 1 && timerTime <= 60){
       timer.innerText = `${Math.floor(timerTime)}:00`;
       timerInActive = false;
+      startButton.innerText = "Start Timer";
     } else {
-      alert("մուտքագրել 0-60 ընկած հատվածում թիվ");
+      alert("մուտքագրել 1-60 ընկած հատվածում թիվ");
+      updateTimer()
     }
   }
-})
+}
+settingsIcon.addEventListener("click", () => updateTimer())
